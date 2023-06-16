@@ -11,6 +11,7 @@ class Language:
         self.consonants = contents['consonants']
         self.clusters = contents['clusters']
         self.syllables = contents['syllables']
+        self.words = contents['words']
 
     def get_all_consonant_options(self):
         return dict(self.consonants, **self.clusters)

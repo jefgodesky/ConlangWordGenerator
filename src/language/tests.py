@@ -34,6 +34,18 @@ class TestLanguage(unittest.TestCase):
     def test_init_load_syllable_forbidden_patterns(self):
         self.assertEqual(self.lang.syllables['forbidden'], ['CCVCC'])
 
+    def test_init_load_word_max_syllables(self):
+        self.assertEqual(self.lang.words['syllables']['max'], 5)
+
+    def test_init_load_word_min_syllables(self):
+        self.assertEqual(self.lang.words['syllables']['min'], 1)
+
+    def test_init_load_word_syllables_rerolls(self):
+        self.assertEqual(self.lang.words['syllables']['tries'], 3)
+
+    def test_init_load_word_forbidden_patterns(self):
+        self.assertEqual(self.lang.words['forbidden'], ['bbc'])
+
     def test_get_all_consonant_options(self):
         self.assertEqual(self.lang.get_all_consonant_options(), {'b': 'b', 'c': 'c', 'bc': 'bc'})
 
