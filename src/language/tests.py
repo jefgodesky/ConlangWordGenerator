@@ -7,6 +7,13 @@ class TestLanguage(unittest.TestCase):
         self.filename = 'test.yml'
         self.lang = Language(self.filename)
 
+    def set_deterministic_lang(self, number_syllables):
+        self.lang.syllables['onset']['incidence'] = 100
+        self.lang.syllables['onset']['options'] = ['b']
+        self.lang.syllables['coda']['incidence'] = 0
+        self.lang.words['syllables']['min'] = number_syllables
+        self.lang.words['syllables']['max'] = number_syllables
+
     def test_init_load_name(self):
         self.assertEqual(self.lang.name, 'Test')
 
@@ -146,19 +153,11 @@ class TestLanguage(unittest.TestCase):
         self.assertLessEqual(syllables, self.lang.words['syllables']['max'])
 
     def test_generate_word_returns_monosyllabic(self):
-        self.lang.syllables['onset']['incidence'] = 100
-        self.lang.syllables['onset']['options'] = ['b']
-        self.lang.syllables['coda']['incidence'] = 0
-        self.lang.words['syllables']['min'] = 1
-        self.lang.words['syllables']['max'] = 1
+        self.set_deterministic_lang(1)
         self.assertEqual(self.lang.generate_word(), '/ba/')
 
     def test_generate_word_returns_multisyllabic(self):
-        self.lang.syllables['onset']['incidence'] = 100
-        self.lang.syllables['onset']['options'] = ['b']
-        self.lang.syllables['coda']['incidence'] = 0
-        self.lang.words['syllables']['min'] = 2
-        self.lang.words['syllables']['max'] = 2
+        self.set_deterministic_lang(2)
         self.assertEqual(self.lang.generate_word(), '/ba.ba/')
 
     def test_test_acceptable_syllable_fail(self):
@@ -168,21 +167,14 @@ class TestLanguage(unittest.TestCase):
         self.assertTrue(self.lang.test_acceptable_syllable('bbab'))
 
     def test_generate_word_avoids_forbidden_syllables(self):
-        self.lang.syllables['onset']['incidence'] = 100
+        self.set_deterministic_lang(10)
         self.lang.syllables['onset']['options'] = ['b', 'c']
-        self.lang.syllables['coda']['incidence'] = 0
         self.lang.syllables['forbidden'] = ['ca']
-        self.lang.words['syllables']['min'] = 10
-        self.lang.words['syllables']['max'] = 10
         self.assertEqual(self.lang.generate_word(), '/ba.ba.ba.ba.ba.ba.ba.ba.ba.ba/')
 
     def test_generate_word_avoids_infinite_loop(self):
-        self.lang.syllables['onset']['incidence'] = 100
-        self.lang.syllables['onset']['options'] = ['b']
-        self.lang.syllables['coda']['incidence'] = 0
+        self.set_deterministic_lang(2)
         self.lang.syllables['forbidden'] = ['ba']
-        self.lang.words['syllables']['min'] = 2
-        self.lang.words['syllables']['max'] = 2
         self.assertEqual(self.lang.generate_word(), '/ba.ba/')
 
     def test_transcribe_removes_ipa_symbols(self):
@@ -212,11 +204,6 @@ class TestLanguage(unittest.TestCase):
     def test_test_acceptable_words_pass(self):
         self.assertTrue(self.lang.test_acceptable_word('abba'))
 
-    def test_generate_words_returns_list_of_words(self):
-        self.lang.syllables['onset']['incidence'] = 100
-        self.lang.syllables['onset']['options'] = ['b']
-        self.lang.syllables['coda']['incidence'] = 0
-        self.lang.syllables['forbidden'] = ['ba']
-        self.lang.words['syllables']['min'] = 2
-        self.lang.words['syllables']['max'] = 2
+    def test_generate_words_returns_list_with_one_word(self):
+        self.set_deterministic_lang(2)
         self.assertEqual(self.lang.generate_words(1), ['/ba.ba/'])
