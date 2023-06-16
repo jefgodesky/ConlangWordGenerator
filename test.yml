@@ -9,7 +9,7 @@ clusters:
   bc: bc
 syllables:
   onset:
-    incidence: 0.5
+    incidence: 50
     options:
       - a
       - b

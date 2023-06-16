@@ -20,7 +20,7 @@ class TestLanguage(unittest.TestCase):
         self.assertEqual(self.lang.clusters, {'bc': 'bc'})
 
     def test_init_load_onset_incidence(self):
-        self.assertEqual(self.lang.syllables['onset']['incidence'], 0.5)
+        self.assertEqual(self.lang.syllables['onset']['incidence'], 50)
 
     def test_init_load_onset_options(self):
         self.assertEqual(self.lang.syllables['onset']['options'], ['a', 'b'])
