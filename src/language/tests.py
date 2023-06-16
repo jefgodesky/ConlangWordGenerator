@@ -152,3 +152,11 @@ class TestLanguage(unittest.TestCase):
         self.lang.words['syllables']['min'] = 1
         self.lang.words['syllables']['max'] = 1
         self.assertEqual(self.lang.generate_word(), 'ba')
+
+    def test_generate_word_returns_multisyllabic(self):
+        self.lang.syllables['onset']['incidence'] = 100
+        self.lang.syllables['onset']['options'] = ['b']
+        self.lang.syllables['coda']['incidence'] = 0
+        self.lang.words['syllables']['min'] = 2
+        self.lang.words['syllables']['max'] = 2
+        self.assertEqual(self.lang.generate_word(), 'baba')

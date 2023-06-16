@@ -42,7 +42,11 @@ class Language:
         return self.pick_onset() + Language.pick_random_sound(self.vowels) + self.pick_coda()
 
     def generate_word(self):
-        return 'ba'
+        number_syllables = self.pick_number_syllables()
+        syllables = []
+        while len(syllables) < number_syllables:
+            syllables.append('ba')
+        return ''.join(syllables)
 
     def test_syllable_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
