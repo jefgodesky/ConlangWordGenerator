@@ -207,3 +207,6 @@ class TestLanguage(unittest.TestCase):
     def test_generate_words_returns_list_with_one_word(self):
         self.set_deterministic_lang(2)
         self.assertEqual(self.lang.generate_words(1), ['/ba.ba/'])
+
+    def test_test_acceptable_words_ignore_ipa_markers(self):
+        self.assertFalse(self.lang.test_acceptable_word('/ab.bca/'))

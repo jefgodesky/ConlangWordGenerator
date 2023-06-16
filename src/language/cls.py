@@ -93,7 +93,7 @@ class Language:
 
     def test_acceptable_word(self, word):
         for pattern in self.words['forbidden']:
-            if pattern in word:
+            if pattern in word.replace('/', '').replace('.', ''):
                 return False
         return True
 
