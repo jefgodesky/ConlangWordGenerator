@@ -24,3 +24,6 @@ class TestLanguage(unittest.TestCase):
 
     def test_init_load_onset_options(self):
         self.assertEqual(len(self.lang.syllables['onset']['options']), 21)
+
+    def test_init_load_syllable_forbidden_patterns(self):
+        self.assertEqual(len(self.lang.syllables['forbidden']), 1)
