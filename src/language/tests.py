@@ -139,3 +139,8 @@ class TestLanguage(unittest.TestCase):
         self.lang.syllables['onset']['incidence'] = 100
         self.lang.syllables['coda']['incidence'] = 100
         self.assertIn(self.lang.generate_syllable(), ['aab', 'aac', 'bab', 'bac'])
+
+    def test_pick_number_syllables_min_max(self):
+        syllables = self.lang.pick_number_syllables()
+        self.assertGreaterEqual(syllables, self.lang.words['syllables']['min'])
+        self.assertLessEqual(syllables, self.lang.words['syllables']['max'])
