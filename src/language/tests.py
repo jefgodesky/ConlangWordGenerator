@@ -45,3 +45,6 @@ class TestLanguage(unittest.TestCase):
 
     def test_test_pattern_matches_explicit(self):
         self.assertTrue(Language.test_pattern('abc', 'abc'))
+
+    def test_test_pattern_fails_wrong_explicit(self):
+        self.assertFalse(Language.test_pattern('abc', 'xyz'))

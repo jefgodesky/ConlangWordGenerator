@@ -27,4 +27,4 @@ class Language:
 
     @staticmethod
     def test_pattern(sample, pattern):
-        return True
+        return sample == pattern
