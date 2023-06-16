@@ -9,9 +9,14 @@ clusters:
   bc: bc
 syllables:
   onset:
-    incidence: 50
+    incidence: 75
     options:
       - a
       - b
+  coda:
+    incidence: 25
+    options:
+      - b
+      - c
   forbidden:
     - CCVCC

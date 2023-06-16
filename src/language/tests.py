@@ -20,10 +20,16 @@ class TestLanguage(unittest.TestCase):
         self.assertEqual(self.lang.clusters, {'bc': 'bc'})
 
     def test_init_load_onset_incidence(self):
-        self.assertEqual(self.lang.syllables['onset']['incidence'], 50)
+        self.assertEqual(self.lang.syllables['onset']['incidence'], 75)
 
     def test_init_load_onset_options(self):
         self.assertEqual(self.lang.syllables['onset']['options'], ['a', 'b'])
+
+    def test_init_load_coda_incidence(self):
+        self.assertEqual(self.lang.syllables['coda']['incidence'], 25)
+
+    def test_init_load_coda_options(self):
+        self.assertEqual(self.lang.syllables['coda']['options'], ['b', 'c'])
 
     def test_init_load_syllable_forbidden_patterns(self):
         self.assertEqual(self.lang.syllables['forbidden'], ['CCVCC'])
