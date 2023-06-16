@@ -83,3 +83,7 @@ class TestLanguage(unittest.TestCase):
     def test_pick_onset_certainly_not(self):
         self.lang.syllables['onset']['incidence'] = 0
         self.assertEqual(self.lang.pick_onset(), '')
+
+    def test_pick_coda_certainty(self):
+        self.lang.syllables['coda']['incidence'] = 100
+        self.assertIn(self.lang.pick_coda(), ['b', 'c'])

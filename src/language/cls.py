@@ -26,6 +26,9 @@ class Language:
             return random.choice(self.syllables['onset']['options'])
         return ''
 
+    def pick_coda(self):
+        return random.choice(self.syllables['coda']['options'])
+
     def test_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
             return False
