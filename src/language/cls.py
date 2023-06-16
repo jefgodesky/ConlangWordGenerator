@@ -9,3 +9,4 @@ class Language:
         self.vowels = contents['vowels']
         self.consonants = contents['consonants']
         self.clusters = contents['clusters']
+        self.syllables = contents['syllables']

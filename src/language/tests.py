@@ -18,3 +18,9 @@ class TestLanguage(unittest.TestCase):
 
     def test_init_load_clusters(self):
         self.assertEqual(len(self.lang.clusters), 13)
+
+    def test_init_load_onset_incidence(self):
+        self.assertEqual(self.lang.syllables['onset']['incidence'], 0.65)
+
+    def test_init_load_onset_options(self):
+        self.assertEqual(len(self.lang.syllables['onset']['options']), 21)

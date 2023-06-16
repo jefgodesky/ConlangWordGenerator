@@ -37,26 +37,28 @@ clusters:
   dʒ: j
 syllables:
   onset:
-    - m
-    - n
-    - p
-    - t
-    - d
-    - k
-    - s
-    - z
-    - ʃ
-    - ʒ
-    - f
-    - v
-    - l
-    - sm
-    - sp
-    - st
-    - sk
-    - sl
-    - fl
-    - tʃ
-    - dʒ
+    incidence: 0.65
+    options:
+      - m
+      - n
+      - p
+      - t
+      - d
+      - k
+      - s
+      - z
+      - ʃ
+      - ʒ
+      - f
+      - v
+      - l
+      - sm
+      - sp
+      - st
+      - sk
+      - sl
+      - fl
+      - tʃ
+      - dʒ
   forbidden:
     - CCVCC
