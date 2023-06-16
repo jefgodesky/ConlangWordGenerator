@@ -8,3 +8,4 @@ class Language:
         self.name = contents['name']
         self.vowels = contents['vowels']
         self.consonants = contents['consonants']
+        self.clusters = contents['clusters']
