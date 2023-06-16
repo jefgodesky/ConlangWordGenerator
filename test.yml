@@ -1,0 +1,62 @@
+#file: noinspection YAMLSchemaValidation
+name: Test
+vowels:
+  a: a
+  e: e
+  i: i
+  o: o
+  u: u
+consonants:
+  m: m
+  n: n
+  ŋ: ng
+  p: p
+  t: t
+  d: d
+  k: k
+  s: s
+  z: z
+  ʃ: sh
+  ʒ: zh
+  f: f
+  v: v
+  l: l
+clusters:
+  nt: nt
+  nd: nd
+  nk: nk
+  ns: ns
+  sm: sm
+  sn: sn
+  sp: sp
+  st: st
+  sk: sk
+  sl: sl
+  fl: fl
+  tʃ: ch
+  dʒ: j
+syllables:
+  onset:
+    - m
+    - n
+    - p
+    - t
+    - d
+    - k
+    - s
+    - z
+    - ʃ
+    - ʒ
+    - f
+    - v
+    - l
+    - sm
+    - sp
+    - st
+    - sk
+    - sl
+    - fl
+    - tʃ
+    - dʒ
+  forbidden:
+    - CCVCC

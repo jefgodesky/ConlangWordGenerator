@@ -7,5 +7,6 @@ class TestLanguage(unittest.TestCase):
         self.filename = 'test.yml'
         self.lang = Language(self.filename)
 
-    def test_init_file(self):
-        self.assertEqual(self.lang.filename, self.filename)
+    def test_init_load(self):
+        self.assertIsNotNone(self.lang.contents)
+        self.assertEqual(self.lang.contents[1], 'name: Test\n')

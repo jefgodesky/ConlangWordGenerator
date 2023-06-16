@@ -1,3 +1,4 @@
 class Language:
     def __init__(self, filename):
-        self.filename = filename
+        with open(filename) as file:
+            self.contents = file.readlines()
