@@ -8,5 +8,4 @@ class TestLanguage(unittest.TestCase):
         self.lang = Language(self.filename)
 
     def test_init_load(self):
-        self.assertIsNotNone(self.lang.contents)
-        self.assertEqual(self.lang.contents[1], 'name: Test\n')
+        self.assertEqual(self.lang.name, 'Test')

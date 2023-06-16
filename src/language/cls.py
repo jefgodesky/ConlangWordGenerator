@@ -1,4 +1,8 @@
+import yaml
+
+
 class Language:
     def __init__(self, filename):
         with open(filename) as file:
-            self.contents = file.readlines()
+            contents = yaml.safe_load(file)
+        self.name = contents['name']
