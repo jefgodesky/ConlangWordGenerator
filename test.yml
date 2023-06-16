@@ -13,6 +13,5 @@ syllables:
     options:
       - a
       - b
-      - c
   forbidden:
     - CCVCC
