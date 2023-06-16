@@ -122,3 +122,8 @@ class TestLanguage(unittest.TestCase):
         self.lang.syllables['onset']['incidence'] = 0
         self.lang.syllables['coda']['incidence'] = 100
         self.assertIn(self.lang.generate_syllable(), ['ab', 'ac'])
+
+    def test_generate_syllable_onset_core_coda(self):
+        self.lang.syllables['onset']['incidence'] = 100
+        self.lang.syllables['coda']['incidence'] = 100
+        self.assertIn(self.lang.generate_syllable(), ['aab', 'aac', 'bab', 'bac'])
