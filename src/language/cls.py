@@ -85,7 +85,10 @@ class Language:
         return True
 
     def test_acceptable_word(self, word):
-        return False
+        for pattern in self.words['forbidden']:
+            if pattern in word:
+                return False
+        return True
 
     @staticmethod
     def pick_random_sound(sounds):

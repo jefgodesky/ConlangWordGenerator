@@ -208,3 +208,6 @@ class TestLanguage(unittest.TestCase):
 
     def test_test_acceptable_words_fail(self):
         self.assertFalse(self.lang.test_acceptable_word('abbca'))
+
+    def test_test_acceptable_words_pass(self):
+        self.assertTrue(self.lang.test_acceptable_word('abba'))
