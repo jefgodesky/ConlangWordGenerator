@@ -34,3 +34,7 @@ class TestLanguage(unittest.TestCase):
     def test_pick_random_sound(self):
         sounds = {'a': 1, 'b': 2}
         self.assertIn(Language.pick_random_sound(sounds), ['a', 'b'])
+
+    def test_pick_random_consonant_option(self):
+        options = self.lang.get_all_consonant_options().keys()
+        self.assertIn(self.lang.pick_random_consonant_option(), options)
