@@ -7,3 +7,4 @@ class Language:
             contents = yaml.safe_load(file)
         self.name = contents['name']
         self.vowels = contents['vowels']
+        self.consonants = contents['consonants']

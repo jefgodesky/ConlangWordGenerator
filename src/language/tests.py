@@ -12,3 +12,6 @@ class TestLanguage(unittest.TestCase):
 
     def test_init_load_vowels(self):
         self.assertEqual(len(self.lang.vowels), 5)
+
+    def test_init_load_consonants(self):
+        self.assertEqual(len(self.lang.consonants), 14)
