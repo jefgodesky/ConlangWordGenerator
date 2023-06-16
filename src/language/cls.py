@@ -19,7 +19,9 @@ class Language:
         return dict(self.consonants, **self.clusters)
 
     def get_sound_inventory(self):
-        return dict(self.vowels, **self.consonants, **self.clusters)
+        inventory = dict(self.vowels, **self.consonants, **self.clusters)
+        inventory_list = sorted(list(inventory.items()), key=lambda key: len(key[0]), reverse=True)
+        return {sound[0]: sound[1] for sound in inventory_list}
 
     def pick_random_vowel(self):
         return Language.pick_random_sound(self.vowels)

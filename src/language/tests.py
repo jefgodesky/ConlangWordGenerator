@@ -191,3 +191,8 @@ class TestLanguage(unittest.TestCase):
     def test_get_sound_inventory_returns_all_sounds(self):
         expected = {'bc': 'bc', 'a': 'a', 'b': 'b', 'c': 'c'}
         self.assertEqual(self.lang.get_sound_inventory(), expected)
+
+    def test_get_sound_inventory_sorted(self):
+        expected = 'bcabc'
+        actual = ''.join(self.lang.get_sound_inventory().keys())
+        self.assertEqual(expected, actual)
