@@ -33,9 +33,7 @@ class Language:
         return ''
 
     def generate_syllable(self):
-        onset = self.pick_onset()
-        core = Language.pick_random_sound(self.vowels)
-        return onset + core
+        return self.pick_onset() + Language.pick_random_sound(self.vowels) + self.pick_coda()
 
     def test_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
