@@ -215,3 +215,10 @@ class TestLanguage(unittest.TestCase):
         self.set_deterministic_lang(2)
         self.lang.words['forbidden'] = ['bab']
         self.assertEqual(self.lang.generate_words(1), [])
+
+    def test_create_csv_returns_csv(self):
+        self.lang.consonants = {'ʃ': 'sh', 't': 't'}
+        self.lang.clusters = {'tʃ': 'ch'}
+        expected = '"IPA","Orthography"\n"/ba.ba/","baba"\n"/tʃa.tʃa/","chacha"'
+        actual = self.lang.create_csv(['/ba.ba/', '/tʃa.tʃa/'])
+        self.assertEqual(expected, actual)

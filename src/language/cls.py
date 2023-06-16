@@ -100,6 +100,12 @@ class Language:
                 return False
         return True
 
+    def create_csv(self, words):
+        lines = ['"IPA","Orthography"']
+        for word in words:
+            lines.append(f'"{word}","{self.transcribe(word)}"')
+        return "\n".join(lines)
+
     @staticmethod
     def strip_ipa(ipa):
         return ipa.replace('/', '').replace('.', '')
