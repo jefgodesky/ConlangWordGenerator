@@ -1,6 +1,8 @@
 import random
 import yaml
 
+MAX_ATTEMPTS = 50
+
 
 class Language:
     def __init__(self, filename):
@@ -44,9 +46,11 @@ class Language:
     def generate_word(self):
         number_syllables = self.pick_number_syllables()
         syllables = []
+        attempts = 0
         while len(syllables) < number_syllables:
             syllable = self.generate_syllable()
-            if self.test_acceptable_syllable(syllable):
+            attempts += 1
+            if self.test_acceptable_syllable(syllable) or attempts >= MAX_ATTEMPTS:
                 syllables.append(syllable)
         return ''.join(syllables)
 

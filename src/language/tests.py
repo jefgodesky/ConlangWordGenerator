@@ -175,3 +175,12 @@ class TestLanguage(unittest.TestCase):
         self.lang.words['syllables']['min'] = 10
         self.lang.words['syllables']['max'] = 10
         self.assertEqual(self.lang.generate_word(), 'babababababababababa')
+
+    def test_generate_word_avoids_infinite_loop(self):
+        self.lang.syllables['onset']['incidence'] = 100
+        self.lang.syllables['onset']['options'] = ['b']
+        self.lang.syllables['coda']['incidence'] = 0
+        self.lang.syllables['forbidden'] = ['ba']
+        self.lang.words['syllables']['min'] = 2
+        self.lang.words['syllables']['max'] = 2
+        self.assertEqual(self.lang.generate_word(), 'baba')
