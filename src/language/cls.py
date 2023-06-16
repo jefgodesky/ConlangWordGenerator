@@ -22,7 +22,9 @@ class Language:
         return Language.pick_random_sound(self.get_all_consonant_options())
 
     def pick_onset(self):
-        return random.choice(self.syllables['onset']['options'])
+        if random.choice(range(1, 101)) <= self.syllables['onset']['incidence']:
+            return random.choice(self.syllables['onset']['options'])
+        return ''
 
     def test_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
