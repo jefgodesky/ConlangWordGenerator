@@ -54,3 +54,6 @@ class TestLanguage(unittest.TestCase):
 
     def test_test_pattern_fails_wrong_consonants(self):
         self.assertFalse(self.lang.test_pattern('abc', 'Cbc'))
+
+    def test_test_pattern_matches_vowels(self):
+        self.assertTrue(self.lang.test_pattern('abc', 'Vbc'))

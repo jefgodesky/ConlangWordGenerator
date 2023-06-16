@@ -25,10 +25,13 @@ class Language:
         zipped = zip([*sample], [*pattern])
         for comparison in zipped:
             seeking_consonants = comparison[1] == 'C'
+            seeking_vowels = comparison[1] == 'V'
             in_consonants = comparison[0] in self.consonants
+            in_vowels = comparison[0] in self.vowels
             match_consonant = seeking_consonants and in_consonants
+            match_vowel = seeking_vowels and in_vowels
             match_explicit = comparison[0] == comparison[1]
-            if not (match_consonant or match_explicit):
+            if not (match_consonant or match_vowel or match_explicit):
                 return False
         return True
 
