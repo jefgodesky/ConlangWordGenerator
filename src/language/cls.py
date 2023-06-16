@@ -69,6 +69,7 @@ class Language:
             word = self.generate_word()
             attempts += 1
             if self.test_acceptable_word(word):
+                attempts = 0
                 words.append(word)
         return words
 
