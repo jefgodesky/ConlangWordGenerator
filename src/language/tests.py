@@ -151,7 +151,7 @@ class TestLanguage(unittest.TestCase):
         self.lang.syllables['coda']['incidence'] = 0
         self.lang.words['syllables']['min'] = 1
         self.lang.words['syllables']['max'] = 1
-        self.assertEqual(self.lang.generate_word(), 'ba')
+        self.assertEqual(self.lang.generate_word(), '/ba/')
 
     def test_generate_word_returns_multisyllabic(self):
         self.lang.syllables['onset']['incidence'] = 100
@@ -159,7 +159,7 @@ class TestLanguage(unittest.TestCase):
         self.lang.syllables['coda']['incidence'] = 0
         self.lang.words['syllables']['min'] = 2
         self.lang.words['syllables']['max'] = 2
-        self.assertEqual(self.lang.generate_word(), 'baba')
+        self.assertEqual(self.lang.generate_word(), '/ba.ba/')
 
     def test_test_acceptable_syllable_fail(self):
         self.assertFalse(self.lang.test_acceptable_syllable('bbabb'))
@@ -174,7 +174,7 @@ class TestLanguage(unittest.TestCase):
         self.lang.syllables['forbidden'] = ['ca']
         self.lang.words['syllables']['min'] = 10
         self.lang.words['syllables']['max'] = 10
-        self.assertEqual(self.lang.generate_word(), 'babababababababababa')
+        self.assertEqual(self.lang.generate_word(), '/ba.ba.ba.ba.ba.ba.ba.ba.ba.ba/')
 
     def test_generate_word_avoids_infinite_loop(self):
         self.lang.syllables['onset']['incidence'] = 100
@@ -183,4 +183,4 @@ class TestLanguage(unittest.TestCase):
         self.lang.syllables['forbidden'] = ['ba']
         self.lang.words['syllables']['min'] = 2
         self.lang.words['syllables']['max'] = 2
-        self.assertEqual(self.lang.generate_word(), 'baba')
+        self.assertEqual(self.lang.generate_word(), '/ba.ba/')

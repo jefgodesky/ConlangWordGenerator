@@ -52,7 +52,7 @@ class Language:
             attempts += 1
             if self.test_acceptable_syllable(syllable) or attempts >= MAX_ATTEMPTS:
                 syllables.append(syllable)
-        return ''.join(syllables)
+        return f"/{'.'.join(syllables)}/"
 
     def test_syllable_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
