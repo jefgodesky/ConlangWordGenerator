@@ -54,6 +54,10 @@ class Language:
                 syllables.append(syllable)
         return f"/{'.'.join(syllables)}/"
 
+    def transcribe(self, ipa):
+        transcription = ipa
+        return transcription.replace('/', '').replace('.', '')
+
     def test_syllable_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
             return False

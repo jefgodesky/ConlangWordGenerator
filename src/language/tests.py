@@ -184,3 +184,6 @@ class TestLanguage(unittest.TestCase):
         self.lang.words['syllables']['min'] = 2
         self.lang.words['syllables']['max'] = 2
         self.assertEqual(self.lang.generate_word(), '/ba.ba/')
+
+    def test_transcribe_removes_ipa_symbols(self):
+        self.assertEqual(self.lang.transcribe('/ba.ba/'), 'baba')
