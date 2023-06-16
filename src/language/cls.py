@@ -59,6 +59,9 @@ class Language:
                 syllables.append(syllable)
         return f"/{'.'.join(syllables)}/"
 
+    def generate_words(self, number):
+        return ['/ba.ba/']
+
     def transcribe(self, ipa):
         transcription = ipa
         inventory = self.get_sound_inventory()
