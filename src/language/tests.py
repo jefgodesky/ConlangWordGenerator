@@ -160,3 +160,6 @@ class TestLanguage(unittest.TestCase):
         self.lang.words['syllables']['min'] = 2
         self.lang.words['syllables']['max'] = 2
         self.assertEqual(self.lang.generate_word(), 'baba')
+
+    def test_test_acceptable_syllable_fail(self):
+        self.assertFalse(self.lang.test_acceptable_syllable('bbabb'))

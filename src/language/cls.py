@@ -60,6 +60,9 @@ class Language:
 
         return True
 
+    def test_acceptable_syllable(self, syllable):
+        return False
+
     @staticmethod
     def pick_random_sound(sounds):
         return random.choice(list(sounds.keys()))
