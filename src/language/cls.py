@@ -33,13 +33,13 @@ class Language:
             return random.choice(self.syllables[element]['options'])
         return ''
 
-    def generate_syllable(self):
-        return self.pick_onset() + Language.pick_random_sound(self.vowels) + self.pick_coda()
-
     def pick_number_syllables(self):
         minimum = self.words['syllables']['min']
         maximum = self.words['syllables']['max'] + 1
         return random.choice(range(minimum, maximum))
+
+    def generate_syllable(self):
+        return self.pick_onset() + Language.pick_random_sound(self.vowels) + self.pick_coda()
 
     def test_syllable_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
