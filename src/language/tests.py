@@ -30,3 +30,7 @@ class TestLanguage(unittest.TestCase):
 
     def test_get_all_consonant_options(self):
         self.assertEqual(len(self.lang.get_all_consonant_options()), 27)
+
+    def test_pick_random_sound(self):
+        sounds = {'a': 1, 'b': 2}
+        self.assertIn(Language.pick_random_sound(sounds), ['a', 'b'])
