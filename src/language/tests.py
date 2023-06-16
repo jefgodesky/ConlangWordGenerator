@@ -200,3 +200,8 @@ class TestLanguage(unittest.TestCase):
     def test_transcribe_handles_ipa_symbols(self):
         self.lang.consonants = {'ʃ': 'sh'}
         self.assertEqual(self.lang.transcribe('/ʃa/'), 'sha')
+
+    def test_transcribe_handles_ipa_clusters(self):
+        self.lang.consonants = {'ʃ': 'sh', 't': 't'}
+        self.lang.clusters = {'tʃ': 'ch'}
+        self.assertEqual(self.lang.transcribe('/ʃa.ta.tʃa/'), 'shatacha')
