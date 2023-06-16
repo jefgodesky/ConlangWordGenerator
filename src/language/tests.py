@@ -187,3 +187,7 @@ class TestLanguage(unittest.TestCase):
 
     def test_transcribe_removes_ipa_symbols(self):
         self.assertEqual(self.lang.transcribe('/ba.ba/'), 'baba')
+
+    def test_get_sound_inventory_returns_all_sounds(self):
+        expected = {'bc': 'bc', 'a': 'a', 'b': 'b', 'c': 'c'}
+        self.assertEqual(self.lang.get_sound_inventory(), expected)

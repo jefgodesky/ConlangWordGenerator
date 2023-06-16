@@ -18,6 +18,9 @@ class Language:
     def get_all_consonant_options(self):
         return dict(self.consonants, **self.clusters)
 
+    def get_sound_inventory(self):
+        return dict(self.vowels, **self.consonants, **self.clusters)
+
     def pick_random_vowel(self):
         return Language.pick_random_sound(self.vowels)
 
