@@ -22,13 +22,14 @@ class Language:
         return Language.pick_random_sound(self.get_all_consonant_options())
 
     def pick_onset(self):
-        if random.choice(range(1, 101)) <= self.syllables['onset']['incidence']:
-            return random.choice(self.syllables['onset']['options'])
-        return ''
+        return self.pick_syllable_element('onset')
 
     def pick_coda(self):
-        if random.choice(range(1, 101)) <= self.syllables['coda']['incidence']:
-            return random.choice(self.syllables['coda']['options'])
+        return self.pick_syllable_element('coda')
+
+    def pick_syllable_element(self, element):
+        if random.choice(range(1, 101)) <= self.syllables[element]['incidence']:
+            return random.choice(self.syllables[element]['options'])
         return ''
 
     def test_pattern(self, sample, pattern):
