@@ -32,6 +32,9 @@ class Language:
             return random.choice(self.syllables[element]['options'])
         return ''
 
+    def generate_syllable(self):
+        return Language.pick_random_sound(self.vowels)
+
     def test_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
             return False

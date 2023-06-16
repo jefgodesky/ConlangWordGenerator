@@ -107,3 +107,8 @@ class TestLanguage(unittest.TestCase):
     def test_pick_syllable_element_coda_certainly_not(self):
         self.lang.syllables['coda']['incidence'] = 0
         self.assertEqual(self.lang.pick_syllable_element('coda'), '')
+
+    def test_generate_syllable_core(self):
+        self.lang.syllables['onset']['incidence'] = 0
+        self.lang.syllables['coda']['incidence'] = 0
+        self.assertIn(self.lang.generate_syllable(), ['a'])
