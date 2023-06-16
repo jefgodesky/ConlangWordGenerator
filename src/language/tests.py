@@ -44,7 +44,10 @@ class TestLanguage(unittest.TestCase):
         self.assertIn(self.lang.pick_random_vowel(), vowels)
 
     def test_test_pattern_matches_explicit(self):
-        self.assertTrue(Language.test_pattern('abc', 'abc'))
+        self.assertTrue(self.lang.test_pattern('abc', 'abc'))
 
     def test_test_pattern_fails_wrong_explicit(self):
-        self.assertFalse(Language.test_pattern('abc', 'xyz'))
+        self.assertFalse(self.lang.test_pattern('abc', 'xyz'))
+
+    def test_test_pattern_matches_consonants(self):
+        self.assertTrue(self.lang.test_pattern('abc', 'aCc'))
