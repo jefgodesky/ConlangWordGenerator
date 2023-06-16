@@ -71,7 +71,7 @@ class Language:
         inventory = self.get_sound_inventory()
         for (ipa, orthography) in inventory.items():
             transcription = transcription.replace(ipa, orthography)
-        return transcription.replace('/', '').replace('.', '')
+        return Language.strip_ipa(transcription)
 
     def test_syllable_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
@@ -93,9 +93,13 @@ class Language:
 
     def test_acceptable_word(self, word):
         for pattern in self.words['forbidden']:
-            if pattern in word.replace('/', '').replace('.', ''):
+            if pattern in Language.strip_ipa(word):
                 return False
         return True
+
+    @staticmethod
+    def strip_ipa(ipa):
+        return ipa.replace('/', '').replace('.', '')
 
     @staticmethod
     def pick_random_sound(sounds):
