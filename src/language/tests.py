@@ -163,3 +163,6 @@ class TestLanguage(unittest.TestCase):
 
     def test_test_acceptable_syllable_fail(self):
         self.assertFalse(self.lang.test_acceptable_syllable('bbabb'))
+
+    def test_test_acceptable_syllable_pass(self):
+        self.assertTrue(self.lang.test_acceptable_syllable('bbab'))

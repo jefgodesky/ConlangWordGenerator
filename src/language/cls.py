@@ -61,7 +61,10 @@ class Language:
         return True
 
     def test_acceptable_syllable(self, syllable):
-        return False
+        for pattern in self.syllables['forbidden']:
+            if self.test_syllable_pattern(syllable, pattern):
+                return False
+        return True
 
     @staticmethod
     def pick_random_sound(sounds):
