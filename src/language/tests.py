@@ -11,25 +11,25 @@ class TestLanguage(unittest.TestCase):
         self.assertEqual(self.lang.name, 'Test')
 
     def test_init_load_vowels(self):
-        self.assertEqual(len(self.lang.vowels), 5)
+        self.assertEqual(len(self.lang.vowels), 1)
 
     def test_init_load_consonants(self):
-        self.assertEqual(len(self.lang.consonants), 14)
+        self.assertEqual(len(self.lang.consonants), 2)
 
     def test_init_load_clusters(self):
-        self.assertEqual(len(self.lang.clusters), 13)
+        self.assertEqual(len(self.lang.clusters), 1)
 
     def test_init_load_onset_incidence(self):
-        self.assertEqual(self.lang.syllables['onset']['incidence'], 0.65)
+        self.assertEqual(self.lang.syllables['onset']['incidence'], 0.5)
 
     def test_init_load_onset_options(self):
-        self.assertEqual(len(self.lang.syllables['onset']['options']), 21)
+        self.assertEqual(len(self.lang.syllables['onset']['options']), 3)
 
     def test_init_load_syllable_forbidden_patterns(self):
         self.assertEqual(len(self.lang.syllables['forbidden']), 1)
 
     def test_get_all_consonant_options(self):
-        self.assertEqual(len(self.lang.get_all_consonant_options()), 27)
+        self.assertEqual(len(self.lang.get_all_consonant_options()), 3)
 
     def test_pick_random_sound(self):
         sounds = {'a': 1, 'b': 2}
