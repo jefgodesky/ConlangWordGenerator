@@ -33,11 +33,11 @@ if __name__ == '__main__':
     languages = load_languages('languages')
     options = [
         inquirer.List('language',
-                      message='Pick a language:',
+                      message='Language',
                       choices=list(map(lambda language: language.name, languages))
                       ),
         inquirer.Text('words',
-                      message='Words to generate: ',
+                      message='Number of words to generate',
                       validate=lambda _, x: x.isdigit())
     ]
     answers = inquirer.prompt(options)
