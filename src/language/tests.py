@@ -53,6 +53,9 @@ class TestLanguage(unittest.TestCase):
     def test_init_load_word_forbidden_patterns(self):
         self.assertEqual(self.lang.words['forbidden'], ['bbc'])
 
+    def test_repr_displays_name(self):
+        self.assertEqual(self.lang.__repr__(), '<Language Test>')
+
     def test_get_all_consonant_options(self):
         self.assertEqual(self.lang.get_all_consonant_options(), {'b': 'b', 'c': 'c', 'bc': 'bc'})
 
