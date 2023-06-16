@@ -2,6 +2,9 @@
 languages/*.yml
 !languages/test.yml
 
+# Ignored generated word lists
+generated
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

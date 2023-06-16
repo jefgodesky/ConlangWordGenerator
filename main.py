@@ -1,4 +1,5 @@
 import os
+import datetime
 import inquirer
 
 from src.language.cls import Language
@@ -20,6 +21,13 @@ def get_language(choice, lang_list):
     return None
 
 
+def create_csv_file(name, content):
+    now = datetime.datetime.now()
+    timestamp = now.strftime('%Y-%m-%d-%H-%M-%S')
+    filename = f'generated/{name.lower()}-{timestamp}.csv'
+    with open(filename, 'w') as file:
+        file.write(content)
+
 
 if __name__ == '__main__':
     languages = load_languages('languages')
@@ -37,3 +45,5 @@ if __name__ == '__main__':
     language = get_language(answers['language'], languages)
     words = language.generate_words(int(answers['words']))
     csv = language.create_csv(words)
+
+    create_csv_file(language.name, csv)
