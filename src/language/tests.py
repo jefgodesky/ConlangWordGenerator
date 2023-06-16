@@ -42,3 +42,6 @@ class TestLanguage(unittest.TestCase):
     def test_pick_random_vowel(self):
         vowels = self.lang.vowels.keys()
         self.assertIn(self.lang.pick_random_vowel(), vowels)
+
+    def test_test_pattern_matches_explicit(self):
+        self.assertTrue(Language.test_pattern('abc', 'abc'))

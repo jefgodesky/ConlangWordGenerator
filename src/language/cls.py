@@ -24,3 +24,7 @@ class Language:
     @staticmethod
     def pick_random_sound(sounds):
         return random.choice(list(sounds.keys()))
+
+    @staticmethod
+    def test_pattern(sample, pattern):
+        return True
