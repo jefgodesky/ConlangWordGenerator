@@ -27,7 +27,9 @@ class Language:
         return ''
 
     def pick_coda(self):
-        return random.choice(self.syllables['coda']['options'])
+        if random.choice(range(1, 101)) <= self.syllables['coda']['incidence']:
+            return random.choice(self.syllables['coda']['options'])
+        return ''
 
     def test_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
