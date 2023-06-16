@@ -49,32 +49,32 @@ class TestLanguage(unittest.TestCase):
         vowels = self.lang.vowels.keys()
         self.assertIn(self.lang.pick_random_vowel(), vowels)
 
-    def test_test_pattern_matches_explicit(self):
-        self.assertTrue(self.lang.test_pattern('abc', 'abc'))
+    def test_test_syllable_pattern_matches_explicit(self):
+        self.assertTrue(self.lang.test_syllable_pattern('abc', 'abc'))
 
-    def test_test_pattern_fails_wrong_explicit(self):
-        self.assertFalse(self.lang.test_pattern('abc', 'xyz'))
+    def test_test_syllable_pattern_fails_wrong_explicit(self):
+        self.assertFalse(self.lang.test_syllable_pattern('abc', 'xyz'))
 
-    def test_test_pattern_matches_consonants(self):
-        self.assertTrue(self.lang.test_pattern('abc', 'aCc'))
+    def test_test_syllable_pattern_matches_consonants(self):
+        self.assertTrue(self.lang.test_syllable_pattern('abc', 'aCc'))
 
-    def test_test_pattern_fails_wrong_consonants(self):
-        self.assertFalse(self.lang.test_pattern('abc', 'Cbc'))
+    def test_test_syllable_pattern_fails_wrong_consonants(self):
+        self.assertFalse(self.lang.test_syllable_pattern('abc', 'Cbc'))
 
-    def test_test_pattern_matches_vowels(self):
-        self.assertTrue(self.lang.test_pattern('abc', 'Vbc'))
+    def test_test_syllable_pattern_matches_vowels(self):
+        self.assertTrue(self.lang.test_syllable_pattern('abc', 'Vbc'))
 
-    def test_test_pattern_fails_wrong_vowels(self):
-        self.assertFalse(self.lang.test_pattern('abc', 'aVc'))
+    def test_test_syllable_pattern_fails_wrong_vowels(self):
+        self.assertFalse(self.lang.test_syllable_pattern('abc', 'aVc'))
 
-    def test_test_pattern_all_consonants_and_vowels(self):
-        self.assertTrue(self.lang.test_pattern('abc', 'VCC'))
+    def test_test_syllable_pattern_all_consonants_and_vowels(self):
+        self.assertTrue(self.lang.test_syllable_pattern('abc', 'VCC'))
 
-    def test_test_pattern_fails_all_consonants_and_vowels(self):
-        self.assertFalse(self.lang.test_pattern('abc', 'CVC'))
+    def test_test_syllable_pattern_fails_all_consonants_and_vowels(self):
+        self.assertFalse(self.lang.test_syllable_pattern('abc', 'CVC'))
 
-    def test_test_pattern_fails_incomplete_pattern(self):
-        self.assertFalse(self.lang.test_pattern('abc', 'VCCC'))
+    def test_test_syllable_pattern_fails_incomplete_pattern(self):
+        self.assertFalse(self.lang.test_syllable_pattern('abc', 'VCCC'))
 
     def test_pick_onset_certainty(self):
         self.lang.syllables['onset']['incidence'] = 100
