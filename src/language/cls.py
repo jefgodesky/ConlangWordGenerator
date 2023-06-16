@@ -22,6 +22,8 @@ class Language:
         return Language.pick_random_sound(self.get_all_consonant_options())
 
     def test_pattern(self, sample, pattern):
+        if len(sample) != len(pattern):
+            return False
         zipped = zip([*sample], [*pattern])
         for comparison in zipped:
             seeking_consonants = comparison[1] == 'C'
