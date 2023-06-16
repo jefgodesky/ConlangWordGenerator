@@ -84,6 +84,9 @@ class Language:
                 return False
         return True
 
+    def test_acceptable_word(self, word):
+        return False
+
     @staticmethod
     def pick_random_sound(sounds):
         return random.choice(list(sounds.keys()))

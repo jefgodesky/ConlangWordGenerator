@@ -205,3 +205,6 @@ class TestLanguage(unittest.TestCase):
         self.lang.consonants = {'ʃ': 'sh', 't': 't'}
         self.lang.clusters = {'tʃ': 'ch'}
         self.assertEqual(self.lang.transcribe('/ʃa.ta.tʃa/'), 'shatacha')
+
+    def test_test_acceptable_words_fail(self):
+        self.assertFalse(self.lang.test_acceptable_word('abbca'))
