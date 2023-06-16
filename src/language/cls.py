@@ -60,7 +60,11 @@ class Language:
         return f"/{'.'.join(syllables)}/"
 
     def generate_words(self, number):
-        return ['/ba.ba/']
+        words = []
+        while len(words) < number:
+            word = self.generate_word()
+            words.append(word)
+        return words
 
     def transcribe(self, ipa):
         transcription = ipa
