@@ -21,6 +21,9 @@ class Language:
     def pick_random_consonant_option(self):
         return Language.pick_random_sound(self.get_all_consonant_options())
 
+    def pick_onset(self):
+        return random.choice(self.syllables['onset']['options'])
+
     def test_pattern(self, sample, pattern):
         if len(sample) != len(pattern):
             return False

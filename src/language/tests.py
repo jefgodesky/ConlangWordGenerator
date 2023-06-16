@@ -69,3 +69,7 @@ class TestLanguage(unittest.TestCase):
 
     def test_test_pattern_fails_incomplete_pattern(self):
         self.assertFalse(self.lang.test_pattern('abc', 'VCCC'))
+
+    def test_pick_onset_certainty(self):
+        self.lang.syllables['onset']['incidence'] = 100
+        self.assertIn(self.lang.pick_onset(), ['a', 'b'])
