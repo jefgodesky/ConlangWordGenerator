@@ -166,3 +166,12 @@ class TestLanguage(unittest.TestCase):
 
     def test_test_acceptable_syllable_pass(self):
         self.assertTrue(self.lang.test_acceptable_syllable('bbab'))
+
+    def test_generate_word_avoids_forbidden_syllables(self):
+        self.lang.syllables['onset']['incidence'] = 100
+        self.lang.syllables['onset']['options'] = ['b', 'c']
+        self.lang.syllables['coda']['incidence'] = 0
+        self.lang.syllables['forbidden'] = ['ca']
+        self.lang.words['syllables']['min'] = 10
+        self.lang.words['syllables']['max'] = 10
+        self.assertEqual(self.lang.generate_word(), 'babababababababababa')

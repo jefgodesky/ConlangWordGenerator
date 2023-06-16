@@ -45,7 +45,9 @@ class Language:
         number_syllables = self.pick_number_syllables()
         syllables = []
         while len(syllables) < number_syllables:
-            syllables.append(self.generate_syllable())
+            syllable = self.generate_syllable()
+            if self.test_acceptable_syllable(syllable):
+                syllables.append(syllable)
         return ''.join(syllables)
 
     def test_syllable_pattern(self, sample, pattern):
