@@ -196,3 +196,7 @@ class TestLanguage(unittest.TestCase):
         expected = 'bcabc'
         actual = ''.join(self.lang.get_sound_inventory().keys())
         self.assertEqual(expected, actual)
+
+    def test_transcribe_handles_ipa_symbols(self):
+        self.lang.consonants = {'ʃ': 'sh'}
+        self.assertEqual(self.lang.transcribe('/ʃa/'), 'sha')

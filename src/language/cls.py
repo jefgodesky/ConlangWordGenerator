@@ -61,6 +61,9 @@ class Language:
 
     def transcribe(self, ipa):
         transcription = ipa
+        inventory = self.get_sound_inventory()
+        for (ipa, orthography) in inventory.items():
+            transcription = transcription.replace(ipa, orthography)
         return transcription.replace('/', '').replace('.', '')
 
     def test_syllable_pattern(self, sample, pattern):
