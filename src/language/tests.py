@@ -4,7 +4,7 @@ from src.language.cls import Language
 
 class TestLanguage(unittest.TestCase):
     def setUp(self):
-        self.filename = 'test.yml'
+        self.filename = 'languages/test.yml'
         self.lang = Language(self.filename)
 
     def set_deterministic_lang(self, number_syllables):
