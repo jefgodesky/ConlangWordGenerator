@@ -210,3 +210,8 @@ class TestLanguage(unittest.TestCase):
 
     def test_test_acceptable_words_ignore_ipa_markers(self):
         self.assertFalse(self.lang.test_acceptable_word('/ab.bca/'))
+
+    def test_generate_words_does_not_generate_unacceptable_words(self):
+        self.set_deterministic_lang(2)
+        self.lang.words['forbidden'] = ['bab']
+        self.assertEqual(self.lang.generate_words(1), [])

@@ -61,9 +61,12 @@ class Language:
 
     def generate_words(self, number):
         words = []
-        while len(words) < number:
+        attempts = 0
+        while len(words) < number and attempts < MAX_ATTEMPTS:
             word = self.generate_word()
-            words.append(word)
+            attempts += 1
+            if self.test_acceptable_word(word):
+                words.append(word)
         return words
 
     def transcribe(self, ipa):
