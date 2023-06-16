@@ -27,3 +27,6 @@ class TestLanguage(unittest.TestCase):
 
     def test_init_load_syllable_forbidden_patterns(self):
         self.assertEqual(len(self.lang.syllables['forbidden']), 1)
+
+    def test_get_all_consonant_options(self):
+        self.assertEqual(len(self.lang.get_all_consonant_options()), 27)
